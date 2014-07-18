@@ -9,11 +9,21 @@
 #import "TWPhotosCollectionViewController.h"
 #import "TWPhotoCollectionViewCell.h"
 
-@interface TWPhotosCollectionViewController ()
+@interface TWPhotosCollectionViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (strong, nonatomic) NSMutableArray *photos; // Of UIImages
 
 @end
 
 @implementation TWPhotosCollectionViewController
+
+-(NSMutableArray *)photos
+{
+    if (!_photos){
+        _photos = [[NSMutableArray alloc] init];
+    }
+    return _photos;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,14 +71,36 @@
     
     
     cell.backgroundColor = [UIColor whiteColor];
-    cell.imageView.image = [UIImage imageNamed:@"Astronaut.jpg"];
+    
+    cell.imageView.image = self.photos[indexPath.row];
     
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return [self.photos count];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    if (!image)
+        image = info[UIImagePickerControllerOriginalImage];
+    
+    [self.photos addObject:image];
+    
+    [self.collectionView reloadData];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    NSLog(@"Cancel");
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
