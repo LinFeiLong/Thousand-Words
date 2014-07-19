@@ -21,7 +21,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="iTa-BT-4Mg" kind="push" id="C38-ma-qsE"/>
+                                    <segue destination="iTa-BT-4Mg" kind="push" identifier="Album Chosen" id="C38-ma-qsE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -64,6 +64,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="uII-cW-nNj" kind="push" identifier="Detail Segue" id="fVo-6r-BLl"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -82,6 +85,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3u-Sv-bMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="871" y="41"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="VDB-wL-RHN">
+            <objects>
+                <viewController id="uII-cW-nNj" customClass="TWPhotoDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jp0-Tl-i9I"/>
+                        <viewControllerLayoutGuide type="bottom" id="HRE-gr-Jxa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eGZ-0T-a43">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="car-FW-rxq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="501"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oe0-up-4yu">
+                                <rect key="frame" x="20" y="518" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Filter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addFilterButtonPressed:" destination="uII-cW-nNj" eventType="touchUpInside" id="bSe-bl-xAt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35v-O6-dpe">
+                                <rect key="frame" x="254" y="518" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="uII-cW-nNj" eventType="touchUpInside" id="GGU-8f-itj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kzQ-4s-PCO"/>
+                    <connections>
+                        <outlet property="imageView" destination="car-FW-rxq" id="sSu-7s-oXR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YnM-zV-ZKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1262" y="41"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WQQ-6v-t2t">

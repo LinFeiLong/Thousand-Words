@@ -31,6 +31,7 @@
 		02A947DC1978240B00565A25 /* TWPhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A947DB1978240B00565A25 /* TWPhotosCollectionViewController.m */; };
 		02A947DF1978272600565A25 /* TWPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A947DE1978272600565A25 /* TWPhotoCollectionViewCell.m */; };
 		02A947E119782A5F00565A25 /* astronaut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02A947E019782A5F00565A25 /* astronaut.jpg */; };
+		02B53580197A8FEF007BCE04 /* TWPhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B5357F197A8FEF007BCE04 /* TWPhotoDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		02A947DD1978272600565A25 /* TWPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		02A947DE1978272600565A25 /* TWPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		02A947E019782A5F00565A25 /* astronaut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = astronaut.jpg; path = ../../../../Downloads/astronaut.jpg; sourceTree = "<group>"; };
+		02B5357E197A8FEF007BCE04 /* TWPhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPhotoDetailViewController.h; sourceTree = "<group>"; };
+		02B5357F197A8FEF007BCE04 /* TWPhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhotoDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				02A947CF1977E04100565A25 /* Storyboard.storyboard */,
+				02B5357E197A8FEF007BCE04 /* TWPhotoDetailViewController.h */,
+				02B5357F197A8FEF007BCE04 /* TWPhotoDetailViewController.m */,
 				02A947DD1978272600565A25 /* TWPhotoCollectionViewCell.h */,
 				02A947DE1978272600565A25 /* TWPhotoCollectionViewCell.m */,
 				02A947DA1978240B00565A25 /* TWPhotosCollectionViewController.h */,
@@ -308,6 +313,7 @@
 				021B5DFA19795DFB00E8B39A /* Album.m in Sources */,
 				02A947AD1977DDD100565A25 /* TWAppDelegate.m in Sources */,
 				02A947D31977E1CD00565A25 /* TWAlbumTableViewController.m in Sources */,
+				02B53580197A8FEF007BCE04 /* TWPhotoDetailViewController.m in Sources */,
 				02A947B01977DDD100565A25 /* Thousand_Words.xcdatamodeld in Sources */,
 				02A947D91978201400565A25 /* TWCoreDataHelper.m in Sources */,
 			);
