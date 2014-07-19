@@ -15,11 +15,20 @@
 
 @interface TWPhotosCollectionViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (strong, nonatomic) NSMutableArray *filters;
+
 @property (strong, nonatomic) NSMutableArray *photos; // Of UIImages
 
 @end
 
 @implementation TWPhotosCollectionViewController
+
+-(NSMutableArray *)filters
+{
+    if (!_filters) _filters = [[NSMutableArray alloc] init];
+        
+        return _filters;
+}
 
 -(NSMutableArray *)photos
 {
@@ -43,10 +52,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
     NSSet *unorderedPhotos = self.album.photos;
     NSSortDescriptor *dateDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
     NSArray *sortedPhotos = [unorderedPhotos sortedArrayUsingDescriptors:@[dateDescriptor]];
     self.photos = [sortedPhotos mutableCopy];
+    
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,6 +72,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//#pragma mark - UICollectionView DataSource
+
+//-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

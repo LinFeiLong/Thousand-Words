@@ -43,12 +43,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Filter Segue"]) {
+        if ([segue.destinationViewController isKindOfClass:[TWPhotoDetailViewController class]]){
+            TWPhotoDetailViewController *targetViewController = segue.destinationViewController;
+            targetViewController.photo = self.photo;
+        }
+    }
+}
+
 - (IBAction)addFilterButtonPressed:(UIButton *)sender {
 }
 
 - (IBAction)deleteButtonPressed:(UIButton *)sender
 {
     [[self.photo managedObjectContext] deleteObject:self.photo];
+    
+    NSError *error = nil;
+    
+    [[self.photo managedObjectContext] save:&error];
+    
+    if (error){
+        NSLog(@"error");
+    }
     
     [self.navigationController popToRootViewControllerAnimated:YES];
     
